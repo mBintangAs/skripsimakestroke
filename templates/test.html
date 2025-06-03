@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .card {
+            background-color: #4D0861;
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: QuickSand;
+        }
+
+        body {
+            background: linear-gradient(180deg, #920E86 0%, #130212 100%);
+            min-height: 100vh;
+
+        }
+
+        #container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            padding-top: 120px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+
+            #container>div:first-child,
+            #container>div:last-child {
+                display: none;
+            }
+
+            #container>div {
+                width: 100%;
+                padding: 0 20px;
+            }
+        }
+
+        @media (min-width: 768px) {
+
+            #container>div:first-child,
+            #container>div:last-child {
+                display: block;
+            }
+
+            #container>div {
+                width: 33%;
+            }
+        }
+
+        .button-green {
+            background-color: #00c985;
+            box-shadow: 0 4px #00a06a;
+            padding: 10px 30px;
+            color: #fafafa;
+            font-weight: 700;
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .fade-in-delay {
+            animation: fadeIn 1.5s ease-in-out;
+            animation-delay: 0.5s;
+            animation-fill-mode: both;
+        }
+
+
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        .fade-out {
+            animation: fadeOut 1.5s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        .container-quiz {
+            background-color: #09090980 !important;
+            border-radius: 8px;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .container-answer {
+
+            background-color: #09090933 !important;
+            border-radius: 8px;
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            margin-bottom: 100px;
+            padding-left: .5rem;
+            padding-right: .5rem;
+            padding-bottom: 1rem;
+            padding-top: 2rem;
+        }
+
+        .input-text {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.25);
+            border-bottom: 2px solid #ffffff54;
+            padding: 10px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            outline: 0;
+            width: 100%;
+            max-width: 600px;
+            padding: 12px 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all .3s;
+            resize: none;
+        }
+
+        .container-quiz span {
+            color: rgba(255, 255, 255, 0.8);
+            background-color: #090909ea;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        .d-none {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div>
+
+        </div>
+        <div>
+            <div id="container-start" class="fade-in">
+                <h1 class="" style="color: white;margin-bottom: 1rem;">Sistem Deteksi Stroke </h1>
+                <div class="card ">
+                    <button onclick="next('#container-start','#question1')" class="button-green"><i
+                            class='bx  bx-play'></i> Mulai</button>
+                </div>
+            </div>
+            <div id="question1" class="d-none">
+                <div class="container-quiz">
+                    <span>1/10</span>
+                    <h1>Berapakah usia anda sekarang?</h1>
+                </div>
+                <div class="container-answer">
+                    <textarea type="number" class="input-text" id="age" name="age" placeholder="Masukkan usia anda" required></textarea>
+                    <button onclick="next('#question1','#container-start')" class="button-green"> Lanjut</button>
+
+                </div>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            // $(".button-green").click(function () {
+            //     $("h1").addClass("fade-out"); // Tambahkan animasi fade-out ke tulisan
+            //     $(".card").addClass("fade-out"); // Tambahkan animasi fade-out ke tombol
+            // });
+
+        });
+        // const next = (lastId, questionId) => {
+        //     $(lastId).addClass('fade-out d-none');
+        //     $(questionId).addClass('fade-in');
+        //     $(questionId).removeClass('fade-out d-none');
+        // }
+        const next = (lastId, questionId) => {
+            $(lastId).addClass('fade-out'); // Tambahkan animasi fade-out
+            $(lastId).addClass('d-none'); // Sembunyikan elemen setelah animasi selesai
+            $(lastId).removeClass('fade-out'); // Hapus kelas fade-out untuk penggunaan berikutnya
+            $(questionId).removeClass('d-none'); // Tampilkan elemen berikutnya
+            $(questionId).addClass('fade-in'); // Tambahkan animasi fade-in
+        };
+    </script>
+</body>
+
+</html>

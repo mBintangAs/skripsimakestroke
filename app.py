@@ -8,12 +8,15 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
+@app.get('/test')
+def test():
+    return render_template('test.html')
 @app.post('/')
 def submit():
     # Load the model from a joblib file
     with open('model.joblib', 'rb') as model_file:
         model = joblib.load(model_file)
-        # print(type(model))  # Pastikan ini adalah DecisionTreeClassifier atau model yang sesuai
+    # print(type(model))  # Pastikan ini adalah DecisionTreeClassifier atau model yang sesuai
 
     # Get form data
     form_data = request.form
@@ -61,4 +64,4 @@ def submit():
     return redirect(url_for('home'))
 if __name__ == '__main__':
     app.secret_key = os.urandom(24).hex()
-    app.run(debug=True)
+    app.run(debug=True,port=3000)

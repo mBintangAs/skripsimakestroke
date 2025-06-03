@@ -4,278 +4,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skripsi Stroke</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <title>Sistem Prediksi Dini Stroke</title>
+    <link rel="shortcut icon"    type="image/png" href="{{ url_for('static', filename='image/logo.svg') }}">
+    <!-- Core Css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+
+
+    </style>
+
 </head>
 
 <body>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Hasil Prediksi</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="min-h-screen bg-gradient-to-b from-red-50 to-white">
+        <header class="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="heart" class="text-red-500"></i>
+
+                        <span class="text-xl font-bold text-gray-900">StrokeCare</span>
                     </div>
-                    <div class="modal-body">
-                        {% for message in messages %}
-                            {% set result = message  %}
-                            <p>{{ result['status'] }}</p>
-                            <ul>
-                                {% for recommendation in result['recommendations'] %}
-                                    <li>{{ recommendation }}</li>
-                                {% endfor %}
-                            </ul>
-                        {% endfor %}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="#pengertian" class="text-gray-600 hover:text-red-500 transition-colors">
+                            Pengertian
+                        </a>
+                        <a href="#faktor" class="text-gray-600 hover:text-red-500 transition-colors">
+                            Faktor Risiko
+                        </a>
+                        <a href="#pencegahan" class="text-gray-600 hover:text-red-500 transition-colors">
+                            Pencegahan
+                        </a>
+                        <a href="/deteksi" class="text-red-500 font-medium hover:text-red-600 transition-colors">
+                            Deteksi
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-20 px-4">
+            <div class="container mx-auto text-center">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                        Sistem Prediksi Dini <span class="text-red-500">Risiko Stroke</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Deteksi dini risiko stroke untuk hidup yang lebih sehat. Kenali gejala, pahami faktor risiko,
+                        dan lakukan
+                        pencegahan sejak dini.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="/deteksi">
+                            <button class="bg-red-500 rounded-2xl flex  hover:bg-red-600 text-white px-8 py-2.5">
+                                <i data-lucide="activity" class="mr-2 h-5 w-5"></i>
+                                Mulai Deteksi Sekarang
+                            </button>
+                        </a>
+                        <button class="px-8 py-2.5 d-flex outline outline-black/50  hover:bg-black/10 rounded-2xl flex  ">
+                            <i class="mr-2 h-5 w-5" data-lucide="shield"></i>
+                            Pelajari Lebih Lanjut
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const modalElement = document.getElementById('exampleModal');
-                if (modalElement) {
-                    const modal = new bootstrap.Modal(modalElement);
-                    modal.show();
-                }
-            });
-        </script>
-    {% endif %}
-    {% endwith %}
-    <form action="/" method="post">
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="{{ url_for('static', filename='image/logo.png') }}" alt="Logo" width="30" height="24"
-                        class="d-inline-block align-text-top">
-                    SKRIPSI STROKE
-                </a>
-            </div>
-        </nav>
-        <div class="p-3">
-        <h3 class="text-center">Selamat Datang di Sistem Pendeteksi Stroke</h3>
-        <p class="text-center">Silakan isi data berikut untuk melanjutkan.</p>
-        <div class="mb-1">
-            Berapa umur anda?
-        </div>
-        <div class=" mb-3">
-            <div class="">
-                <input required min="1" type="number" class="form-control" id="age" name="age" placeholder="Masukkan umur anda"
-                    required>
-            </div>
-        </div>
-        <div class="mb-1">
-            Berapa berat badan anda? (kg)
-        </div>
-        <div class=" mb-3">
-            <div class="">
-                <input required min="1" type="number" class="form-control" id="weight" name="weight" placeholder="Masukkan umur anda"
-                    required>
-            </div>
-        </div>
-        <div class="mb-1">
-            Berapa tinggi badan anda? (cm)
-        </div>
-        <div class=" mb-3">
-            <div class="">
-                <input required min="1" type="number" class="form-control" id="height" name="height" placeholder="Masukkan umur anda"
-                    required>
-            </div>
-        </div>
-        <div>
-            Jenis Kelamin
-        </div>
-        <div class="ms-3 mb-3">
-            <div class="">
-                <input required value="0" class="form-check-input" type="radio" name="gender" id="gender1">
-                <label class="form-check-label" for="gender1">
-                    Laki-laki
-                </label>
-            </div>
-            <div class="">
+        </section>
+        <section id="pengertian" class="py-20 px-4 bg-white">
+            <div class="container mx-auto">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Pengertian Stroke</h2>
+                        <div class="w-20 h-1 bg-red-500 mx-auto"></div>
+                    </div>
 
-                <input required value="1" class="form-check-input" type="radio" name="gender" id="gender2" >
-                <label class="form-check-label" for="gender2">
-                    Perempuan
-                </label>
-            </div>
-        </div>
-       
-        <div>
-            Apakah anda pernah menikah?
-        </div>
-        <div class="ms-3 mb-3">
-            <div class="">
-                <input required value="1" class="form-check-input" type="radio" name="ever_married" id="ever_married1">
-                <label class="form-check-label" for="ever_married1">
-                    Ya
-                </label>
-            </div>
-            <div class="">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="rounded-lg border bg-card text-card-foreground shadow-sm border-red-100">
+                                <div class="flex flex-col space-y-1.5 p-6">
+                                    <div
+                                        class="text-2xl font-semibold leading-none tracking-tight flex items-center text-red-600">
+                                        <i class="mr-2 h-6 w-6" data-lucide="alert-triangle"></i>
+                                        <h1 class="">Apa itu Stroke?</h1>
+                                    </div>
+                                </div>
+                                <div class="space-y-4 p-6 pt-0">
+                                    <p class="text-gray-700 leading-relaxed">
+                                        Stroke adalah suatu penyakit defisit neurologis yang disebabkan oleh perdarahan
+                                        ataupun sumbatan dengan gejala dan tanda yang sesuai pada bagian otak yang
+                                        terkena, yang dapat menimbulkan cacat atau kematian.
+                                    </p>
+                                    <p class="text-gray-700 leading-relaxed">
+                                        Stroke merupakan penyebab kematian ketiga di dunia setelah penyakit jantung
+                                        koroner dan kanker pada negara maju ataupun negara berkembang. Satu dari 10
+                                        kematian disebabkan oleh stroke.
+                                        Stroke Organization menunjukkan bahwa setiaptahunnya ada 13,7 juta kasus baru
+                                        penyakit stroke, dan sekitar 5,5 juta kematian terjadi akibat stroke.
 
-                <input required value="0" class="form-check-input" type="radio" name="ever_married" id="ever_married2" >
-                <label class="form-check-label" for="ever_married2">
-                    Tidak
-                </label>
-            </div>
-        </div>
-        <div>
-            Pernah memiliki riwayat tekanan darah tinggi?
-        </div>
-        <div class="ms-3 mb-3">
-            <div class="">
-                <input required value="1" class="form-check-input" val type="radio" name="hypertension" id="hypertension1">
-                <label class="form-check-label" for="hypertension1">
-                    Ya
-                </label>
-            </div>
-            <div class="">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-                <input required value="0" class="form-check-input" type="radio" name="hypertension" id="hypertension2" >
-                <label class="form-check-label" for="hypertension2">
-                    Tidak
-                </label>
-            </div>
-        </div>
-        <div>
-            Pernah memiliki riwayat penyakit jantung?
-        </div>
-        <div class="ms-3 mb-3">
-            <div class="">
-                <input required value="1" class="form-check-input" type="radio" name="heart_disease" id="heart_disease1">
-                <label class="form-check-label" for="heart_disease1">
-                    Ya
-                </label>
-            </div>
-            <div class="">
+                        <div class="space-y-6">
+                            <div class="rounded-lg border bg-card text-card-foreground shadow-sm border-orange-100">
+                                <div class="flex flex-col space-y-1.5 p-6">
+                                    <div class="text-2xl font-semibold leading-none tracking-tight flex items-center text-orange-600">
+                                        Jenis-jenis Stroke
+                                    </div>
+                                </div>
+                                <div class="space-y-4 p-6 pt-0">
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start">
+                                            <i class="mr-2 h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0"
+                                                data-lucide="check-circle"></i>
+                                            <div>
+                                                <strong>Stroke Iskemik:</strong> Terjadi karena penyumbatan pembuluh
+                                                darah otak (85% kasus)
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <i class="mr-2 h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0"
+                                                data-lucide="check-circle"></i>
+                                            <div>
+                                                <strong>Stroke Hemoragik:</strong> Terjadi karena pecahnya pembuluh
+                                                darah otak (15% kasus)
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
 
-                <input required value="0" class="form-check-input" type="radio" name="heart_disease" id="heart_disease2" >
-                <label  class="form-check-label" for="heart_disease2">
-                    Tidak
-                </label>
+                            <div class="rounded-lg border bg-card text-card-foreground shadow-sm border-yellow-100">
+                                <div class="flex flex-col space-y-1.5 p-6">
+                                    <div class="text-2xl font-semibold leading-none tracking-tight flex items-center text-yellow-600">Gejala Umum Stroke</div>
+                                </div>
+                                <div class="space-y-4 p-6 pt-0">
+                                    <div class="grid grid-cols-2 gap-2 text-sm">
+                                        <div>• Kelemahan wajah</div>
+                                        <div>• Kesulitan bicara</div>
+                                        <div>• Kelemahan lengan</div>
+                                        <div>• Sakit kepala hebat</div>
+                                        <div>• Gangguan penglihatan</div>
+                                        <div>• Kehilangan keseimbangan</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div>
-            Apa jenis pekerjaan anda?
-        </div>
-        <div class="ms-3 mb-3">
-            <div class="">
-                <input required value="1" class="form-check-input" type="radio" name="work_type" id="work_type1">
-                <label class="form-check-label" for="work_type1">
-                    Anak anak
-                </label>
-            </div>
-            <div class="">
-
-                <input required value="2" class="form-check-input" type="radio" name="work_type" id="work_type2" >
-                <label class="form-check-label" for="work_type2">
-                    Pegawai negeri sipil
-                </label>
-            </div>
-            <div class="">
-
-                <input required value="4" class="form-check-input" type="radio" name="work_type" id="work_type3" >
-                <label class="form-check-label" for="work_type3">
-                    Pegawai swasta
-                </label>
-            </div>
-            <div class="">
-
-                <input required value="5" class="form-check-input" type="radio" name="work_type" id="work_type4" >
-                <label class="form-check-label" for="work_type4">
-                    Wiraswasta
-                </label>
-            </div>
-            <div class="">
-
-                <input required value="3" class="form-check-input" type="radio" name="work_type" id="work_type5" >
-                <label class="form-check-label" for="work_type5">
-                    Tidak pernah bekerja
-                </label>
-            </div>
-        </div>
-        <div>
-            Tempat tinggal anda?
-        </div>
-        <div class="ms-3 mb-3">
-            <div class="">
-
-                <input required value="1" class="form-check-input" type="radio" name="residence_type" id="residence_type2" >
-                <label class="form-check-label" for="residence_type2">
-                    Pedesaan
-                </label>
-            </div>
-            <div class="">
-                <input required value="2" class="form-check-input" type="radio" name="residence_type" id="residence_type1">
-                <label class="form-check-label" for="residence_type1">
-                    Perkotaan
-                </label>
-            </div>
-        </div>
-        <div>
-            Berapa rata-rata gula darah anda?
-        </div>
-        <div class="ms-3 mb-3">
-            <div class="">
-
-                <input required value="0" class="form-check-input" type="radio" name="avg_glucose_level" id="avg_glucose_level2" >
-                <label class="form-check-label" for="avg_glucose_level2">
-                    < 180 mg/dl
-                </label>
-            </div>
-            <div class="">
-                <input required value="1" class="form-check-input" type="radio" name="avg_glucose_level" id="avg_glucose_level1">
-                <label class="form-check-label" for="avg_glucose_level1">
-                    > 180 mg/dl
-                </label>
-            </div>
-        </div>
-        <div>
-            Apakah anda pernah merokok ?
-        </div>
-        <div class="ms-3 mb-3">
-            <div class="">
-
-                <input required value="2" class="form-check-input" type="radio" name="smoking_status" id="smoking_status2" >
-                <label class="form-check-label" for="smoking_status2">
-                    Tidak pernah
-                </label>
-            </div>
-            <div class="">
-                <input required value="1" class="form-check-input" type="radio" name="smoking_status" id="smoking_status1">
-                <label class="form-check-label" for="smoking_status1">
-                    Sudah berhenti
-                </label>
-            </div>
-            <div class="">
-                <input required value="3" class="form-check-input" type="radio" name="smoking_status" id="smoking_status3">
-                <label class="form-check-label" for="smoking_status3">
-                    Masih merokok
-                </label>
-            </div>
-            <div class="">
-                <input required value="4" class="form-check-input" type="radio" name="smoking_status" id="smoking_status4">
-                <label class="form-check-label" for="smoking_status4">
-                    Tidak tahu
-                </label>
-            </div>
-        </div>
-
-        <div class="mb-3 row">
-            <button type="submit" class="btn btn-primary">Kirim</button>
-        </div>
+        </section>
     </div>
-
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>
