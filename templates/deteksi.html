@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Prediksi Dini Stroke</title>
+  <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='image/logo.svg') }}">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    label {
+      @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+    }
+    .alert {
+      @apply  relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 ;
+    }
+    input[type="number"]{
+      @apply flex h-10 w-full rounded-md border border-gray-300   px-3 py-2 text-base  file:border-0 file:bg-transparent file:text-sm file:font-medium   focus-visible:outline-none  focus:visible focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm;
+    }
+    input[type="checkbox"] {
+      @apply h-3 w-3 rounded border-gray-300 text-red-500 focus:ring-red-500 checked:bg-red-500 checked:border-red-500;
+    }
+    select {
+      @apply flex h-10 w-full items-center justify-between rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm ring-offset-transparent placeholder:text-gray-600 focus:outline-none   disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1
+    }
+    button{
+      @apply bg-red-500 text-white hover:bg-red-500/90 h-10 px-4 py-2 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2  focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="min-h-screen bg-gradient-to-b from-red-50 to-white">
+    <header class="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+          <a href="/" class="flex items-center space-x-2">
+            <i data-lucide="arrow-left" class="h-5 w-5 text-gray-600"></i>
+            <i data-lucide="heart" class="h-8 w-8 text-red-500"></i>
+            <span class="text-xl font-bold text-gray-900">StrokeCare</span>
+          </a>
+          <div class="text-sm text-gray-600">Deteksi Risiko Stroke</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-8">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Deteksi Risiko Stroke</h1>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Isi formulir di bawah ini untuk mengetahui tingkat risiko stroke Anda. Semua informasi akan dijaga
+            kerahasiaannya dan hanya digunakan untuk analisis risiko.
+          </p>
+        </div>
+
+        <div class="alert mb-6 border-yellow-200 bg-yellow-50">
+          <i data-lucide="info" class="h-4 w-4"></i>
+          <div class="text-sm [&_p]:leading-relaxed ">
+            <strong>Penting:</strong> Hasil deteksi ini hanya sebagai panduan awal dan tidak menggantikan konsultasi
+            medis profesional. Selalu konsultasikan dengan dokter untuk diagnosis dan penanganan yang tepat.
+          </div>
+        </div>
+
+        <form action="/" method="post">
+          <div class="rounded-lg  bg-card text-card-foreground shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <div class="text-2xl font-semibold leading-none tracking-tight">Formulir Deteksi Risiko</div>
+              <div class="text-sm text-muted-foreground">Lengkapi semua informasi berikut untuk mendapatkan hasil yang
+                akurat</div>
+            </div>
+            <div class="p-6 pt-0 space-y-6">
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label class="label" for="usia">Usia (tahun)</label>
+                  <input required min="1" id="usia" name="age" type="number" placeholder="Masukkan usia Anda" />
+                </div>
+                <div class="space-y-2">
+                  <label>Jenis Kelamin</label>
+                  <select name="gender" value="">
+                    <option value="0">Pria</option>
+                    <option value="1">Wanita</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <Label htmlFor="beratBadan">Berat Badan (kg)</Label>
+                  <Input required min="1" id="beratBadan" name="weight" type="number" placeholder="Masukkan berat badan"
+                    value="" />
+                </div>
+                <div class="space-y-2">
+                  <Label htmlFor="tinggiBadan">Tinggi Badan (cm)</Label>
+                  <Input required min="1" id="tinggiBadan" name="height" type="number"
+                    placeholder="Masukkan tinggi badan" value="" />
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <Label>Gula Darah</Label>
+                  <Select name="avg_glucose_level" value="">
+                    <option value="0">Normal (&lt;180mg/dl)</option>
+                    <option value="1">Tinggi (&gt;180mg/dl)</option>
+                    </>
+                  </Select>
+                </div>
+                <div class="space-y-2">
+                  <Label>Apakah anda pernah merokok ?</Label>
+                  <Select name="smoking_status">
+                    <option value="2">Tidak pernah</option>
+                    <option value="1">Sudah berhenti</option>
+                    <option value="3">Masih merokok</option>
+                    <option value="4">Tidak tahu</option>
+                  </Select>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <Label>Di manakah anda tinggal?</Label>
+                  <Select name="residence_type">
+                    <option value="1">Pedesaan</option>
+                    <option value="2">Perkotaan</option>
+                  </Select>
+                </div>
+                <div class="space-y-2">
+                  <Label>Apa jenis pekerjaan anda?</Label>
+                  <Select name="work_type">
+                    <option value="3">Tidak pernah bekerja</option>
+                    <option value="1">Anak-anak</option>
+                    <option value="2">Pegawai negeri sipil</option>
+                    <option value="4">Pegawai swasta</option>
+                    <option value="5">Wiraswasta</option>
+                  </Select>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="ever_married" name="ever_married" />
+                  <Label for="ever_married">Saya pernah menikah</Label>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="hypertension" name="hypertension" />
+                  <Label for="hypertension">Saya memiliki riwayat tekanan darah tinggi</Label>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                  <input type="checkbox" id="heart_disease" name="heart_disease" />
+                  <Label for="heart_disease">Saya memiliki riwayat penyakit jantung</Label>
+                </div>
+              </div>
+
+              <Button class="w-full bg-red-500 hover:bg-red-600" type="submit">
+                <i data-lucide="Heart" class="mr-2 h-4 w-4"></i>
+                Analisis Risiko Stroke
+              </Button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>

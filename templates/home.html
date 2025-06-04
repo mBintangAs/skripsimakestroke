@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Prediksi Dini Stroke</title>
-    <link rel="shortcut icon"    type="image/png" href="{{ url_for('static', filename='image/logo.svg') }}">
-    <!-- Core Css -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
+    <a rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='image/logo.svg') }}">
+        <!-- Core Css -->
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style type="text/tailwindcss">
 
 
-    </style>
+        </style>
 
 </head>
 
@@ -61,10 +61,11 @@
                                 Mulai Deteksi Sekarang
                             </button>
                         </a>
-                        <button class="px-8 py-2.5 d-flex outline outline-black/50  hover:bg-black/10 rounded-2xl flex  ">
+                        <a href="#pengertian"
+                            class="px-8 py-2.5 d-flex outline outline-black/50  hover:bg-black/10 rounded-2xl flex  ">
                             <i class="mr-2 h-5 w-5" data-lucide="shield"></i>
                             Pelajari Lebih Lanjut
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -108,7 +109,8 @@
                         <div class="space-y-6">
                             <div class="rounded-lg border bg-card text-card-foreground shadow-sm border-orange-100">
                                 <div class="flex flex-col space-y-1.5 p-6">
-                                    <div class="text-2xl font-semibold leading-none tracking-tight flex items-center text-orange-600">
+                                    <div
+                                        class="text-2xl font-semibold leading-none tracking-tight flex items-center text-orange-600">
                                         Jenis-jenis Stroke
                                     </div>
                                 </div>
@@ -136,7 +138,9 @@
 
                             <div class="rounded-lg border bg-card text-card-foreground shadow-sm border-yellow-100">
                                 <div class="flex flex-col space-y-1.5 p-6">
-                                    <div class="text-2xl font-semibold leading-none tracking-tight flex items-center text-yellow-600">Gejala Umum Stroke</div>
+                                    <div
+                                        class="text-2xl font-semibold leading-none tracking-tight flex items-center text-yellow-600">
+                                        Gejala Umum Stroke</div>
                                 </div>
                                 <div class="space-y-4 p-6 pt-0">
                                     <div class="grid grid-cols-2 gap-2 text-sm">
@@ -154,14 +158,388 @@
                 </div>
             </div>
         </section>
+        <section id="faktor" class="py-20 px-4 bg-gray-50">
+            <div class="container mx-auto">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Faktor Terjadinya Penyakit Stroke
+                        </h2>
+                        <div class="w-20 h-1 bg-red-500 mx-auto mb-4"></div>
+                        <p class="text-gray-600 max-w-2xl mx-auto">
+                            Faktor risiko stroke terbagi dalam berbagai jenis berdasarkan penelitian.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Faktor Risiko Stroke Non-Hemoragik -->
+                        <div class="border rounded-lg border-red-100 p-6 shadow-sm bg-white">
+                            <div class="text-red-600 font-semibold text-lg mb-1 flex items-center">
+                                <i class="mr-2 h-6 w-6" data-lucide="alert-triangle"></i>
+
+                                Faktor Risiko Stroke Non-Hemoragik
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">
+                                Berdasarkan studi terkait, faktor-faktor berikut berkontribusi terhadap risiko stroke
+                                non-hemoragik.
+                            </p>
+                            <div class="space-y-4 text-sm text-gray-700">
+                                <div class="flex space-x-3">
+                                    <div class="p-1.5 h-1.5 bg-red-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <div>
+
+                                            <strong> Kadar kolesterol darah total tinggi</strong>
+                                        </div>
+                                        <div>
+                                            Kolesterol tinggi memicu penumpukan plak di pembuluh darah, sehingga
+                                            menghambat
+                                            aliran darah ke otak.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <div class="p-1.5 h-1.5 bg-red-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <strong> Riwayat hipertensi</strong>
+                                        <div>
+                                            Tekanan darah tinggi yang berlangsung lama dapat merusak pembuluh darah dan
+                                            meningkatkan risiko stroke.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <div class="p-1.5 h-1.5 bg-red-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <strong> Tekanan darah sistolik abnormal</strong>
+                                        <div>
+                                            Sistolik tinggi menandakan tekanan saat jantung memompa darah berlebihan,
+                                            yang dapat
+                                            melemahkan pembuluh darah otak.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <div class="p-1.5 h-1.5 bg-red-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <strong> Tekanan darah diastolik abnormal</strong>
+                                        <div>
+
+                                            Tekanan diastolik yang tinggi menunjukkan pembuluh darah tidak rileks dengan
+                                            baik,
+                                            berisiko memicu sumbatan atau pecahnya pembuluh.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <div class="p-1.5 h-1.5 bg-red-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <strong> Hasil pemeriksaan jantung abnormal</strong>
+                                        Masalah seperti aritmia atau pembesaran jantung bisa membentuk gumpalan darah
+                                        yang
+                                        berpotensi menyumbat aliran ke otak.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Faktor Risiko Kematian akibat Stroke pada Lansia -->
+                        <div class="border rounded-lg border-orange-100 p-6 shadow-sm bg-white">
+                            <div class="text-orange-600 font-semibold text-lg mb-1 flex items-center">
+                                <i class="mr-2 h-6 w-6" data-lucide="alert-triangle"></i>
+
+                                Faktor Risiko Kematian akibat Stroke pada Lansia
+                            </div>
+                            <p class="text-sm text-gray-600 mb-4">
+                                Penelitian ini menyoroti faktor-faktor yang berkontribusi pada kematian akibat stroke
+                                pada lansia.
+                            </p>
+                            <div class="space-y-4 text-sm text-gray-700">
+                                <div class="flex space-x-3">
+                                    <div class="p-1.5 h-1.5 bg-orange-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <strong>Jenis kelamin</strong>
+                                        Beberapa studi menunjukkan perbedaan risiko stroke antara pria dan wanita,
+                                        tergantung faktor hormonal dan gaya hidup.
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <div class="p-1.5 h-1.5 bg-orange-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <strong> Usia</strong><br>
+                                        Risiko stroke meningkat seiring bertambahnya usia, terutama di atas 56 tahun.
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <div class="p-1.5 h-1.5 bg-orange-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <strong>Tekanan darah tinggi (hipertensi)</strong><br>
+                                        Faktor utama penyebab stroke karena tekanan tinggi mempercepat kerusakan
+                                        pembuluh
+                                        darah.
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <div class="p-1.5 h-1.5 bg-orange-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <strong>Indeks Massa Tubuh (BMI)</strong> <br>
+                                        Kelebihan berat badan meningkatkan beban jantung dan tekanan darah.
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <div class="p-1.5 h-1.5 bg-orange-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <strong> Fungsi kognitif</strong><br>
+                                        Penurunan fungsi otak bisa terkait dengan kerusakan pembuluh darah kecil di otak
+                                        akibat tekanan darah tinggi.
+                                    </div>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <div class="p-1.5 h-1.5 bg-orange-500 rounded-full mt-2"></div>
+                                    <div>
+                                        <strong>Status nutrisi</strong><br>
+                                        Gizi buruk melemahkan sistem tubuh dan memperburuk kondisi pembuluh darah serta
+                                        daya
+                                        tahan terhadap penyakit.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="pencegahan" class="py-20 px-4 bg-white">
+            <div class="container mx-auto">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Pencegahan Terjadinya Stroke</h2>
+                        <div class="w-20 h-1 bg-red-500 mx-auto mb-4"></div>
+                        <p class="text-gray-600 max-w-2xl mx-auto">
+                            Stroke dapat dicegah dengan menerapkan gaya hidup sehat dan mengelola faktor risiko yang
+                            dapat diubah.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div
+                            class="rounded-lg border bg-card text-card-foreground shadow-sm border-green-100 hover:shadow-lg transition-shadow">
+                            <div class="flex flex-col space-y-1.5 p-6">
+                                <div
+                                    class="text-2xl font-semibold leading-none tracking-tight text-green-600 flex items-center">
+                                    <i class="mr-2 h-6 w-6" data-lucide="heart"></i>
+                                    Gaya Hidup Sehat
+                                </div>
+                            </div>
+                            <div class="p-6 pt-0">
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-green-500 mt-0.5 flex-shrink-0"></i>
+                                        Konsumsi makanan bergizi seimbang
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-green-500 mt-0.5 flex-shrink-0"></i>
+                                        Batasi konsumsi garam dan lemak jenuh
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-green-500 mt-0.5 flex-shrink-0"></i>
+                                        Perbanyak konsumsi buah dan sayuran
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-green-500 mt-0.5 flex-shrink-0"></i>
+                                        Minum air putih yang cukup
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-green-500 mt-0.5 flex-shrink-0"></i>
+                                        Hindari makanan olahan berlebihan
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div
+                            class="rounded-lg border bg-card text-card-foreground shadow-sm border-emerald-100 hover:shadow-lg transition-shadow">
+                            <div class="flex flex-col space-y-1.5 p-6">
+                                <div
+                                    class="text-2xl font-semibold leading-none tracking-tight text-emerald-600 flex items-center">
+                                    <i data-lucide="activity" class="mr-2 h-6 w-6"></i>
+                                    Aktivitas Fisik
+                                </div>
+                            </div>
+                            <div class="flex items-center p-6 pt-0">
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                                        Olahraga teratur minimal 30 menit/hari
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                                        Pilih aktivitas yang disukai (jalan, berenang, bersepeda)
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                                        Hindari gaya hidup sedentari
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                                        Lakukan pemanasan sebelum olahraga
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0"></i>
+                                        Konsisten dalam berolahraga
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div
+                            class="rounded-lg border bg-card text-card-foreground shadow-sm border-teal-100 hover:shadow-lg transition-shadow">
+                            <div class="flex flex-col space-y-1.5 p-6 ">
+                                <div
+                                    class="text-2xl font-semibold leading-none tracking-tight text-sm text-muted-foreground text-teal-600 flex items-center">
+                                    <i data-lucide="shield" class="mr-2 h-6 w-6"></i>
+                                    Kontrol Medis
+                                </div>
+                            </div>
+                            <div class="flex items-center p-6 pt-0">
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-teal-500 mt-0.5 flex-shrink-0"></i>
+                                        Periksa tekanan darah secara rutin
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-teal-500 mt-0.5 flex-shrink-0"></i>
+                                        Kontrol kadar gula darah
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-teal-500 mt-0.5 flex-shrink-0"></i>
+                                        Monitor kadar kolesterol
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-teal-500 mt-0.5 flex-shrink-0"></i>
+                                        Konsumsi obat sesuai resep dokter
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle"
+                                            class="mr-2 h-4 w-4 text-teal-500 mt-0.5 flex-shrink-0"></i>
+                                        Konsultasi rutin dengan dokter
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 grid md:grid-cols-2 gap-8">
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm border-purple-100">
+                            <div class="flex flex-col space-y-1.5 p-6">
+                                <div class="text-sm text-muted-foreground text-purple-600">Hindari Kebiasaan Buruk</div>
+                            </div>
+                            <div class="flex items-center p-6 pt-0">
+                                <div class="space-y-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                        <span class="text-sm">
+                                            <strong>Berhenti merokok</strong> - Konsultasi dengan dokter untuk program
+                                            berhenti merokok
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                        <span class="text-sm">
+                                            <strong>Batasi alkohol</strong> - Konsumsi alkohol dalam batas wajar atau
+                                            hindari sama sekali
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                        <span class="text-sm">
+                                            <strong>Kelola stres</strong> - Praktikkan teknik relaksasi dan manajemen
+                                            stres
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm border-pink-100">
+                            <div class="flex flex-col space-y-1.5 p-6">
+                                <div class="text-sm text-muted-foreground text-pink-600">Tips Tambahan</div>
+                            </div>
+                            <div class="flex items-center p-6 pt-0">
+                                <div class="space-y-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-3 h-3 bg-pink-500 rounded-full"></div>
+                                        <span class="text-sm">
+                                            <strong>Tidur cukup</strong> - 7-8 jam per malam untuk pemulihan tubuh
+                                            optimal
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-3 h-3 bg-pink-500 rounded-full"></div>
+                                        <span class="text-sm">
+                                            <strong>Jaga berat badan ideal</strong> - Sesuaikan dengan indeks massa
+                                            tubuh yang sehat
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-3 h-3 bg-pink-500 rounded-full"></div>
+                                        <span class="text-sm">
+                                            <strong>Kenali gejala</strong> - Segera cari bantuan medis jika mengalami
+                                            gejala stroke
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 px-4 bg-gradient-to-r from-red-500 to-red-600 text-white">
+            <div class="container mx-auto text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Deteksi Risiko Stroke Anda Sekarang</h2>
+                    <p class="text-xl mb-8 opacity-90 leading-relaxed">
+                        Ingin mengetahui apakah Anda berisiko terkena penyakit stroke? Klik tombol di bawah ini untuk
+                        melakukan
+                        deteksi risiko secara cepat dan mudah.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="/deteksi">
+                            <button  class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-11 rounded-md px-8 bg-white text-red-600 hover:bg-gray-100 px-8 py-3">
+                                <i data-lucide="activity" class="mr-2 h-5 w-5"></i>
+                                Mulai Deteksi Risiko
+                            </button>
+                        </a>
+                       
+                    </div>
+                    <p class="text-sm mt-6 opacity-75">
+                        * Hasil deteksi ini hanya sebagai panduan awal dan tidak menggantikan konsultasi medis
+                        profesional
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </div>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
     </script>
-    <script>
-        lucide.createIcons();
-    </script>
+   
 </body>
 
 </html>
