@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Prediksi Dini Stroke</title>
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='image/logo.svg') }}">
+    <!-- Core Css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        label {
+            @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+            }
+            .alert {
+            @apply  relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 ;
+            }
+            input[type="number"]{
+            @apply flex h-10 w-full rounded-md border border-gray-300   px-3 py-2 text-base  file:border-0 file:bg-transparent file:text-sm file:font-medium   focus-visible:outline-none  focus:visible focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm;
+            }
+            input[type="checkbox"] {
+            @apply h-3 w-3 rounded border-gray-300 text-red-500 focus:ring-red-500 checked:bg-red-500 checked:border-red-500;
+            }
+            select {
+            @apply flex h-10 w-full items-center justify-between rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm ring-offset-transparent placeholder:text-gray-600 focus:outline-none   disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1
+            }
+            button{
+            @apply bg-red-500 text-white hover:bg-red-500/90 h-10 px-4 py-2 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2  focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0
+            }
+                .card {
+      @apply rounded-lg  shadow-sm;
+    }
+    .card-header {
+      @apply flex flex-col space-y-1.5 p-6;
+    }
+    .card-title {
+      @apply text-2xl font-semibold leading-none tracking-tight;
+    }
+    .card-content{
+      @apply p-6 pt-0
+    }
+    input {
+        @apply border border-gray-300 flex h-10 w-full rounded-md border   px-3 py-2 text-base   disabled:cursor-not-allowed disabled:opacity-50 md:text-sm;
+    }
+        </style>
+
+</head>
+
+<body>
+    <div class="min-h-screen bg-gradient-to-b from-red-50 to-white flex  justify-center p-4">
+        <div class="w-full max-w-md">
+            <div class="text-center mb-8">
+                <div onclick="window.history.back()" class="inline-flex items-center space-x-2 mb-6 cursor-pointer">
+                    <i data-lucide="arrow-left" class="h-5 w-5 text-gray-600"></i>
+                    <i data-lucide="heart" class="h-8 w-8 text-red-500"></i>
+                    <span class="text-xl font-bold text-gray-900">StrokeCare</span>
+                </div>
+                <h1 class="text-2xl  font-bold text-gray-900 mb-2">Buat akun baru</h1>
+                <p class="text-gray-600">Daftar untuk mengakses fitur deteksi risiko stroke</p>
+            </div>
+            <div class="card bg-white">
+                <div class="card-header">
+                    <div class="card-title">Daftar</div>
+                    <div class="card-description">Lengkapi informasi di bawah ini untuk membuat akun</div>
+                </div>
+                <div class="card-content">
+                    {# Display error message if exists #}
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert mb-4 {% if category == 'error' %}border-red-200 bg-red-50{% elif category == 'success' %}border-green-200 bg-green-50{% else %}border-gray-200 bg-gray-50{% endif %}">
+                                    <div class="{% if category == 'error' %}text-red-700{% elif category == 'success' %}text-green-700{% else %}text-gray-700{% endif %}">{{ message }}</div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    {# Login form #}
+
+                    <form method="post" action="/register" class="space-y-4">
+                        <div class="space-y-2">
+                            <label for="name">Nama lengkap</label>
+                            <input id="name" type="text" class="w-full" placeholder="Masukkan nama lengkap" name="name"
+                                required />
+                        </div>
+                        <div class="space-y-2">
+                            <label for="username">Username</label>
+                            <input id="username" type="text" class="w-full" placeholder="Masukkan username" name="username"
+                                required />
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="password">Password</label>
+                           
+                                <input id="password" type="password" placeholder="Masukkan password" name="password"
+                                    required
+                                    class="flex h-10 w-full rounded-md border border-gray-300 px-3 py-2 text-base focus-visible:outline-none focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm pr-10" />
+
+                            </div>
+
+                            <button type="submit" class="w-full bg-red-500 hover:bg-red-600">
+                                Daftar
+                            </button>
+                    </form>
+
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-600">
+                            Sudah punya akun?
+                            <a href="/login" class="text-red-500 hover:text-red-600 font-medium">
+                                masuk disini
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script>
+            lucide.createIcons();
+        </script>
+</body>
+
+</html>

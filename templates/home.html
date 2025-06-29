@@ -9,10 +9,25 @@
         <!-- Core Css -->
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <style type="text/tailwindcss">
-
-
-        </style>
-
+            label {
+      @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+    }
+    .alert {
+      @apply  relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 ;
+    }
+    input[type="number"]{
+      @apply flex h-10 w-full rounded-md border border-gray-300   px-3 py-2 text-base  file:border-0 file:bg-transparent file:text-sm file:font-medium   focus-visible:outline-none  focus:visible focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm;
+    }
+    input[type="checkbox"] {
+      @apply h-3 w-3 rounded border-gray-300 text-red-500 focus:ring-red-500 checked:bg-red-500 checked:border-red-500;
+    }
+    select {
+      @apply flex h-10 w-full items-center justify-between rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm ring-offset-transparent placeholder:text-gray-600 focus:outline-none   disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1
+    }
+    button{
+      @apply bg-red-500 text-white hover:bg-red-500/90 h-10 px-4 py-2 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2  focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0
+    }
+  </style>  
 </head>
 
 <body>
@@ -38,6 +53,23 @@
                         <a href="/deteksi" class="text-red-500 font-medium hover:text-red-600 transition-colors">
                             Deteksi
                         </a>
+                        {% if current_user.is_authenticated %}
+                        <div class="relative group">
+                            <div class="flex items-center focus:outline-none">
+                                <i data-lucide="user" class="w-6 h-6 text-gray-600"></i>
+                                <i data-lucide="chevron-down" class="w-4 h-4 ml-1 text-gray-600"></i>
+                            </div>
+                            <div class="absolute right-0 mt-2 w-32 bg-white border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity z-50">
+                                <a href="/profile" class="flex items-center px-4 py-2 hover:bg-gray-100 text-gray-700">
+                                    <i data-lucide="user-circle" class="w-4 h-4 mr-2"></i> Profile
+                                </a>
+                                <a href="{{ url_for('logout') }}" class="w-full flex items-center px-4 py-2 hover:bg-gray-100 text-gray-700 text-left">
+                                    <i data-lucide="log-out" class="w-4 h-4 mr-2"></i> Logout
+                                </a>
+
+                            </div>
+                        </div>
+                        {% endif %}
                     </nav>
                 </div>
             </div>
@@ -519,12 +551,13 @@
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="/deteksi">
-                            <button  class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-11 rounded-md px-8 bg-white text-red-600 hover:bg-gray-100 px-8 py-3">
+                            <button
+                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-11 rounded-md px-8 bg-white text-red-600 hover:bg-gray-100 px-8 py-3">
                                 <i data-lucide="activity" class="mr-2 h-5 w-5"></i>
                                 Mulai Deteksi Risiko
                             </button>
                         </a>
-                       
+
                     </div>
                     <p class="text-sm mt-6 opacity-75">
                         * Hasil deteksi ini hanya sebagai panduan awal dan tidak menggantikan konsultasi medis
@@ -539,7 +572,7 @@
     <script>
         lucide.createIcons();
     </script>
-   
+
 </body>
 
 </html>
